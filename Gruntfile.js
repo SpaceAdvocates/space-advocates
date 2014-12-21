@@ -78,7 +78,7 @@ module.exports = function (grunt) {
 					expand: true,
 					cwd: '<%= yeoman.styles %>',
 					src: ['*.scss'],
-					dest: '<%= yeoman.dist %>',
+					dest: '<%= yeoman.styles %>',
 					ext: '.css'
 				}]
 			},
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
 					expand: true,
 					cwd: '<%= yeoman.styles %>',
 					src: ['*.scss'],
-					dest: '<%= yeoman.dist %>',
+					dest: '<%= yeoman.styles %>',
 					ext: '.css'
 				}]
 			}

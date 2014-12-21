@@ -5,5 +5,8 @@
   "authors": [
     "Joseph Spens <jspens@spaceadvocates.com>"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "susy": "2.2.0.beta.2"
+  }
 }
