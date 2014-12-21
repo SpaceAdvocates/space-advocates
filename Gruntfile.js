@@ -50,6 +50,10 @@ module.exports = function (grunt) {
 					'notify:scripts'
 				]
 			},
+			html: {
+				files: ['*.html'],
+				tasks: ['htmlmin:dev']
+			},
 			// tests: {
 			// 	files: ['<%= yeoman.tests %>/**/*.js'],
 			// 	tasks: ['jasmine:watch']
@@ -119,10 +123,12 @@ module.exports = function (grunt) {
 
 		concurrent: {
 			prod: [
+				'htmlmin:prod',
 				'sass:prod'
 				// 'newer:uglify:prod'
 			],
 			dev: [
+				'htmlmin:dev',
 				'sass:dev'
 				// 'newer:concat:scripts'
 			]
@@ -201,6 +207,29 @@ module.exports = function (grunt) {
 				src: [
 					'<%= yeoman.scripts %>/*.js'
 				]
+			}
+		},
+
+		htmlmin: {
+			dist: {
+				options: {
+					removeComments: true,
+					collapseWhitespace: true
+				},
+				files: [{
+					expand: true,
+					cwd: 'templates/',
+					src: '**/*.html',
+					dest: '<%= yeoman.dist %>/'
+				}]
+			},
+			dev: {
+				files: [{
+					expand: true,
+					cwd: 'templates/',
+					src: '**/*.html',
+					dest: '<%= yeoman.dist %>/'
+				}]
 			}
 		}
 
