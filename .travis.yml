@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - '0.10'
+script:
+  - node_modules/bower/bin/bower install
+  - node_modules/grunt-cli/bin/grunt
+deploy:
+  provider: heroku
+  api_key:
+    secure: FO8wL5B4sHTqOEwXBJ10grBoyKylip9hkqysaQuSNBAkpamRmqHBMOXgaRM8Wbho26oSv+ISScBZVz4VDrx368+alAFP/JX99yFW7p9O2DbdjKLTxTqphy58WK+ZGRKAh4pcje5EhTP8Cwzrc8OjadSJ9LqOjvOaHquwQxOMI3s=
+  app: space-advocates
+  on:
+    repo: SpaceAdvocates/space-advocates

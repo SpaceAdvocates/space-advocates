@@ -1,0 +1,9 @@
+{
+  "name": "space-advocates",
+  "version": "0.0.0",
+  "homepage": "https://github.com/SpaceAdvocates/space-advocates",
+  "authors": [
+    "Joseph Spens <jspens@spaceadvocates.com>"
+  ],
+  "license": "MIT"
+}
