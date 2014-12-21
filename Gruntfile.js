@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 		// Project settings
 		yeoman: {
 			// Configurable paths
-			dist: '.',
+			dist: 'build',
 			styles: 'styles',
 			scripts: 'scripts',
 			fonts: 'fonts',
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
 					expand: true,
 					cwd: '<%= yeoman.styles %>',
 					src: ['*.scss'],
-					dest: '<%= yeoman.styles %>',
+					dest: '<%= yeoman.dist %>/styles',
 					ext: '.css'
 				}]
 			},
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
 					expand: true,
 					cwd: '<%= yeoman.styles %>',
 					src: ['*.scss'],
-					dest: '<%= yeoman.styles %>',
+					dest: '<%= yeoman.dist %>/styles',
 					ext: '.css'
 				}]
 			}
@@ -155,10 +155,7 @@ module.exports = function (grunt) {
 			}
 		},
 
-		clean: [
-			'<%= yeoman.styles %>/*.css',
-			'<%= yeoman.scripts %>/*.min.js'
-		],
+		clean: ['<%= yeoman.dist %>'],
 
 		// jasmine: {
 		// 	watch: {
@@ -182,7 +179,7 @@ module.exports = function (grunt) {
 				csslintrc: '.csslintrc'
 			},
 			prod: {
-				src: ['<%= yeoman.styles %>/*.css']
+				src: ['<%= yeoman.dist %>/styles/*.css']
 			}
 		},
 
@@ -192,7 +189,7 @@ module.exports = function (grunt) {
 				map: true
 			},
 			prod: {
-				src: '<%= yeoman.styles %>/*.css'
+				src: '<%= yeoman.dist %>/styles/*.css'
 			}
 		},
 
