@@ -5,15 +5,15 @@ node_js:
 script:
 - node_modules/bower/bin/bower install
 - node_modules/grunt-cli/bin/grunt
-# deploy:
-#   provider: s3
-#   access_key_id: AKIAIUKPFLJ5XOJIZC4A
-#   secret_access_key:
-#     secure: pOyEHNvhhUUkP6vYT2rP8yApLMk2EDxYcxCTGsUYp7G07+Uf/0rsb/M8OywblY8lFgKGDXKf4iEpRlltFKZ1yM8I6g5MBJhgNzJ6mqxKK3+YjEZEsmqV0Omt1wL+K0os08qBY6MNpiaAkYP1KmcqzatOp01Rc96EV6nlKwwlwZc=
-#   bucket: space-advocates-website
-#   skip_cleanup: true
-#   endpoint: space-advocates-website.s3-website-us-west-2.amazonaws.com
-#   region: Oregon
-#   local-dir: build
-#   on:
-#     repo: SpaceAdvocates/space-advocates
+deploy:
+  provider: s3
+  access_key_id: AKIAIUKPFLJ5XOJIZC4A
+  secret_access_key:
+    secure: pOyEHNvhhUUkP6vYT2rP8yApLMk2EDxYcxCTGsUYp7G07+Uf/0rsb/M8OywblY8lFgKGDXKf4iEpRlltFKZ1yM8I6g5MBJhgNzJ6mqxKK3+YjEZEsmqV0Omt1wL+K0os08qBY6MNpiaAkYP1KmcqzatOp01Rc96EV6nlKwwlwZc=
+  bucket: space-advocates-website
+  skip_cleanup: true
+  endpoint: space-advocates-website.s3-website-us-west-2.amazonaws.com
+  region: us-west-2
+  local-dir: build
+  on:
+    repo: SpaceAdvocates/space-advocates

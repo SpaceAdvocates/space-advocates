@@ -23,6 +23,7 @@ module.exports = function (grunt) {
 		yeoman: {
 			// Configurable paths
 			dist: 'build',
+			html: 'templates',
 			styles: 'styles',
 			scripts: 'scripts',
 			fonts: 'fonts',
@@ -51,8 +52,11 @@ module.exports = function (grunt) {
 				]
 			},
 			html: {
-				files: ['*.html'],
-				tasks: ['htmlmin:dev']
+				files: ['<%= yeoman.html %>/*.html'],
+				tasks: [
+					'htmlmin:dev',
+					'notify:html'
+				]
 			},
 			// tests: {
 			// 	files: ['<%= yeoman.tests %>/**/*.js'],
@@ -153,6 +157,12 @@ module.exports = function (grunt) {
 					message: 'Grunt has finished compiling Sass files.'
 				}
 			},
+			html: {
+				options: {
+					title: 'HTML Finished',
+					message: 'Grunt has finished compiling HTML files.'
+				}
+			},
 			scripts: {
 				options: {
 					title: 'Scripts Finished',
@@ -211,23 +221,23 @@ module.exports = function (grunt) {
 		},
 
 		htmlmin: {
-			dist: {
+			prod: {
 				options: {
 					removeComments: true,
 					collapseWhitespace: true
 				},
 				files: [{
 					expand: true,
-					cwd: 'templates/',
-					src: '**/*.html',
+					cwd: '<%= yeoman.html %>/',
+					src: '*.html',
 					dest: '<%= yeoman.dist %>/'
 				}]
 			},
 			dev: {
 				files: [{
 					expand: true,
-					cwd: 'templates/',
-					src: '**/*.html',
+					cwd: '<%= yeoman.html %>/',
+					src: '*.html',
 					dest: '<%= yeoman.dist %>/'
 				}]
 			}
