@@ -26,6 +26,7 @@ module.exports = function (grunt) {
 			html: 'templates',
 			styles: 'styles',
 			scripts: 'scripts',
+			images: 'images',
 			fonts: 'fonts',
 			components: 'bower_components',
 			modules: 'node_modules',
@@ -128,12 +129,14 @@ module.exports = function (grunt) {
 		concurrent: {
 			prod: [
 				'htmlmin:prod',
-				'sass:prod'
+				'sass:prod',
+				'copy:favicon'
 				// 'newer:uglify:prod'
 			],
 			dev: [
 				'htmlmin:dev',
-				'sass:dev'
+				'sass:dev',
+				'copy:favicon'
 				// 'newer:concat:scripts'
 			]
 		},
@@ -241,6 +244,15 @@ module.exports = function (grunt) {
 					dest: '<%= yeoman.dist %>/'
 				}]
 			}
+		},
+
+		copy: {
+			favicon: {
+				expand: true,
+				cwd: '<%= yeoman.images %>/',
+				src: '*.ico',
+				dest: '<%= yeoman.dist %>/'
+			}
 		}
 
 	});
@@ -255,6 +267,7 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('local', [
+		'clean',
 		'concurrent:dev',
 		'jshint:all',
 		'autoprefixer',
@@ -263,6 +276,7 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('build', [
+		'clean',
 		'concurrent:prod',
 		'jshint:all',
 		'autoprefixer',

@@ -1,1 +1,73 @@
-.container { @include container($large-screen); }
+@include border-box-sizing;
+
+body {
+	font-size: $base-font-size;
+	font-family: $base-font-family;
+	line-height: $base-line-height;
+}
+
+.container {
+	@extend %sticky-footer-container;
+	background-color: $blue;
+}
+
+header {
+	overflow: hidden;
+	padding-top: 10em;
+	background: url($earth-image) center;
+	background-size: cover;
+	text-align: center;
+	color: $white;
+	font-size: 2em;
+
+	h1 {
+		margin: 0;
+		padding: 0.5em 0;
+		background-color: rgba($black, 0.3);
+	}
+}
+
+main {
+	@include container;
+	padding-top: 2em;
+}
+
+section {
+	@include span(isolate 8 at 3 of 12 break);
+
+	h2 {
+		color: $white;
+		border-bottom: 2px solid lighten($blue, 10%);
+		padding: 0.2em 0;
+	}
+}
+
+%section-item {
+	@include border-radius;
+	display: block;
+	font-size: 2em;
+	padding: 1em;
+	margin-bottom: 1em;
+	background: darken($blue, 10%) url($stars-image) center;
+	color: $white;
+	text-align: center;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.tool { @extend %section-item; }
+
+.campaign {
+	@extend %section-item;
+
+	.p4n-logo {
+		height: 1em;
+		width: 1em;
+		background: url($p4n-image) no-repeat center;
+		background-size: contain;
+		display: inline-block;
+		vertical-align: bottom;
+		font-size: 1.5em;
+		margin: -0.2em 0.2em -0.2em 0;
+	}
+}

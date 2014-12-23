@@ -12,12 +12,14 @@
 // Vendor Libraries
 // -----------------------------------------------------------------------------
 @import "susy/sass/susy";
+@import "sticky-footer/sticky-footer";
 
 // Web fonts
 // -----------------------------------------------------------------------------
 
 // Utils - Helper classes and mixins
 // -----------------------------------------------------------------------------
+@import "utils/mixins";
 
 // Patches - Custom styling for vendor libraries
 // -----------------------------------------------------------------------------
@@ -37,7 +39,6 @@
 // Molecules - Combinations of quarks and atoms, medium to large regions of a
 // view, not bound to any specific page
 // -----------------------------------------------------------------------------
-@import "molecules/campaign";
 
 // Templates - Styling for a collection of pages
 // -----------------------------------------------------------------------------
