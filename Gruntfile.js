@@ -47,7 +47,7 @@ module.exports = function (grunt) {
 				files: ['<%= yeoman.scripts %>/**/*.js'],
 				tasks: [
 					'jshint:all',
-					// 'concat:scripts',
+					'uglify',
 					// 'jasmine:watch',
 					'notify:scripts'
 				]
@@ -117,27 +117,29 @@ module.exports = function (grunt) {
 		// 	}
 		// },
 
-		// uglify: {
-		// 	prod: {
-		// 		options: {
-		// 			sourceMap: true
-		// 		},
-		// 		files: scriptFiles
-		// 	}
-		// },
+		uglify: {
+			prod: {
+				options: {
+					sourceMap: true
+				},
+				files: {
+					'<%= yeoman.dist %>/scripts/main.min.js': '<%= yeoman.scripts %>/main.js'
+				}
+			}
+		},
 
 		concurrent: {
 			prod: [
 				'htmlmin:prod',
 				'sass:prod',
-				'copy:favicon'
-				// 'newer:uglify:prod'
+				'copy',
+				'newer:uglify'
 			],
 			dev: [
 				'htmlmin:dev',
 				'sass:dev',
-				'copy:favicon'
-				// 'newer:concat:scripts'
+				'copy',
+				'newer:uglify'
 			]
 		},
 
@@ -252,6 +254,12 @@ module.exports = function (grunt) {
 				cwd: '<%= yeoman.images %>/',
 				src: '*.ico',
 				dest: '<%= yeoman.dist %>/'
+			},
+			scripts: {
+				expand: true,
+				cwd: '<%= yeoman.components %>/jquery/dist/',
+				src: '*',
+				dest: '<%= yeoman.dist %>/scripts/'
 			}
 		}
 
