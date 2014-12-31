@@ -77,9 +77,11 @@ section {
 
 %section-item {
 	@include border-radius;
+	@include container;
 	display: block;
 	font-size: 2em;
 	padding: 1em;
+	margin-bottom: 0.5em;
 	background: darken($blue, 10%) url($stars-image) center;
 	color: $white;
 	text-align: center;
@@ -88,6 +90,38 @@ section {
 }
 
 .tool { @extend %section-item; }
+
+.mission {
+	@extend %section-item;
+	font-size: 1.2em;
+	text-align: left;
+}
+
+.call-to-action {
+	@extend %section-item;
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: attr(data-step);
+		display: block;
+		position: absolute;
+		left: 0.1em;
+		top: 0;
+		font-size: 4.5em;
+		line-height: 1;
+		opacity: 0.2;
+	}
+
+	&--title {
+		@include span(isolate 8 at 3 of 12 break);
+		margin-bottom: 0.2em;
+	}
+	&--description {
+		@include span(isolate 8 at 3 of 12 break);
+		font-size: 0.5em;
+	}
+}
 
 .campaign {
 	@extend %section-item;
@@ -111,6 +145,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
 
+ul, ol {
+	margin: 0;
+	padding: 0;
+}
 
 // Atoms - Combinations of a few quarks, small regions of a view, specific to
 // individual tasks
